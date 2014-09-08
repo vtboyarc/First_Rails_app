@@ -11,3 +11,17 @@
  *= require_self
  *= require_tree .
  */
+/*html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+#profile_page{
+  background: #A8DBA8;
+  width: 100%; /*had 800px before*/
+  /*margin: 0 auto 0 auto;
+  position: absolute; /*difference with absolute or relative?*/
+/*}*//***//*/

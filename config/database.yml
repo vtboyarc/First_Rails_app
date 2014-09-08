@@ -42,13 +42,11 @@ test:
   encoding: unicode
   database: Portfolio_test
   pool: 5
-  username: Portfolio
-  password:
+
 
 production:
   adapter: postgresql
   encoding: unicode
   database: Portfolio_production
   pool: 5
-  username: Portfolio
-  password:
+
