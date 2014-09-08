@@ -9,9 +9,14 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+
  *= require_tree .
  */
-/*html {
+
+*= require_self
+*= require normalize-rails
+*= require_tree
+html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
@@ -19,9 +24,9 @@
 }
 
 
-#profile_page{
+#portfolio{
   background: #A8DBA8;
   width: 100%; /*had 800px before*/
-  /*margin: 0 auto 0 auto;
-  position: absolute; /*difference with absolute or relative?*/
-/*}*//***//*/
+  margin: 0 auto 0 auto;
+  position: absolute; 
+}
