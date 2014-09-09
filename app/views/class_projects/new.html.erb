@@ -1,0 +1,24 @@
+<h1>New Project</h1>
+
+<% @project.errors.full_messages.each do |msg| %>
+  <p><%= msg %></p>
+<% end %>
+
+<!-- Creates a POST request to "/users" -->
+<%= @form_for @project do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  
+  <%= f.label :code_language %>
+  <%= f.text_field :code_language %>
+  
+  <%= f.label :summary %>
+  <%= f.text_field :summary %>
+  
+  <%= f.label :link %>
+  <%= f.text_field :link %>
+
+  <%= f.submit %>
+
+<% end %>
