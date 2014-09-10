@@ -3,17 +3,21 @@ Portfolio::Application.routes.draw do
  #  get "profile" => 'pages#profile', :as => "profile"
  #  get "contact" => 'pages#contact', :as => "contact"
   ######################################################
+    get "home" => 'pages#welcome', :as => "welcome"
   
-  get "classprojects" => 'class_projects#index', :as => "class_project"
-
-  get "classprojects/new" => 'class_projects#new', :as => "project_new"
-  get "classprojects/:id/edit" => 'class_projects#edit', :as => "project_edit"
-
-  post "classprojects" => 'class_projects#create' # Notice that the path 'classprojects' is the same as the index path.
-  put "classprojects/:id" => 'class_projects#update' # Notice that the path 'classprojects/:id' is the same as the show route.
-
-  get "classprojects/:id" => 'class_projects#show', :as => "project"
-
+    get "about" => 'pages#bio', :as => "bio"
+  
+    get "classprojects" => 'class_projects#index', :as => "class_project"
+  
+    get "classprojects/new" => 'class_projects#new', :as => "project_new"
+    get "classprojects/:id/edit" => 'class_projects#edit', :as => "project_edit"
+  
+    post "classprojects" => 'class_projects#create' # Notice that the path 'classprojects' is the same as the index path.
+    put "classprojects/:id" => 'class_projects#update' # Notice that the path 'classprojects/:id' is the same as the show route.
+  
+    get "classprojects/:id" => 'class_projects#show', :as => "project"
+  
+  
 
   ##################################################################
   #contacts routes
