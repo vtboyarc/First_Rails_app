@@ -3,9 +3,6 @@ Portfolio::Application.routes.draw do
  #  get "profile" => 'pages#profile', :as => "profile"
  #  get "contact" => 'pages#contact', :as => "contact"
   ######################################################
-    get "home" => 'pages#welcome', :as => "welcome"
-  
-    get "about" => 'pages#bio', :as => "bio"
   
     get "classprojects" => 'class_projects#index', :as => "class_project"
   
@@ -21,10 +18,10 @@ Portfolio::Application.routes.draw do
 
   ##################################################################
   #contacts routes
-  get "contacts" => 'ccontacts#index', :as => 'contacts'
+  get "contacts" => 'contacts#index', :as => 'contact'
 
-  get "contacts/new" => 'contacts#new', :as => "new_contacts"
-  get "contacts/:id/edit" => 'contactss#edit', :as => "edit_contacts"
+  get "contacts/new" => 'contacts#new', :as => "contact_new"
+  get "contacts/:id/edit" => 'contacts#edit', :as => "contact_edit"
 
   post "contacts" => 'contacts#create'
   put "contacts/:id" => 'contacts#update'

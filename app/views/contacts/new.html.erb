@@ -5,7 +5,7 @@
 <% end %>
 
 <!-- Creates a POST request to "/users" -->
-<%= form_for(@contact) do |f| %>
+<%= form_for @contact, :url => "/contacts" do |f| %>
 
    <%= f.label :name %>
    <%= f.text_field :name %>
