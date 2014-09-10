@@ -1,0 +1,6 @@
+<h1>Contacts</h1>
+<% @contacts.each do |contact| %>
+  <p><%= link_to(project.name, contacts_path(contact.id) ) %></p>
+<% end %>
+
+<%= link_to("New Contact", contacts_path) %>

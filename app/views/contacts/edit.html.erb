@@ -1,0 +1,24 @@
+<h1>Edit Contact</h1>
+
+<% @contact.errors.full_messages.each do |msg| %>
+  <p><%= msg %></p>
+<% end %>
+
+<!-- Creates a PUT request to "/users/1/edit" -->
+<%#= form_for(@existing_recruit, :as => "user", :url => user_path(@existing_recruit.id), :method => "put") ... %>
+
+<%= form_for(@contact, :url => update_contact_path) do |f| %>
+
+   <%= f.label :name %>
+   <%= f.text_field :name %>
+ 
+   <%= f.label :email %>
+   <%= f.text_field :email %>
+ 
+   <%= f.label :message %>
+   <%= f.text_field :message %>
+ 
+  
+  <%= f.submit %>
+
+<% end %>

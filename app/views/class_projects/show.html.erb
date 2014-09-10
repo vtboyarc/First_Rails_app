@@ -1,1 +1,7 @@
-<h1><%= @project.name %></h1>
+<h1><%= @class_project.name %></h1>
+<p><%= @class_project.summary %></p>
+<p><%= @class_project.code_language %></p>
+<p><%= @class_project.github %></p>
+<p><%= @class_project.link %></p>
+
+<%= link_to("Edit this project", project_edit_path(@class_project.id)) %>
