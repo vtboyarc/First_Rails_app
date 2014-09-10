@@ -7,7 +7,7 @@
 <!-- Creates a PUT request to "/users/1/edit" -->
 <%#= form_for(@existing_recruit, :as => "user", :url => user_path(@existing_recruit.id), :method => "put") ... %>
 
-<%= form_for(@existing_contact, :url => "/contacts/#{@existing_contact.id}" do |f| %>
+<%= form_for (@existing_contact), :url => "/contacts/#{@existing_contact.id}" do |f| %>
 
    <%= f.label :name %>
    <%= f.text_field :name %>

@@ -14,10 +14,8 @@ Portfolio::Application.routes.draw do
   
     get "classprojects/:id" => 'class_projects#show', :as => "project"
   
-  
-
   ##################################################################
-  #contacts routes
+  #contact routes
   get "contacts" => 'contacts#index', :as => 'contact'
 
   get "contacts/new" => 'contacts#new', :as => "contact_new"
@@ -27,5 +25,15 @@ Portfolio::Application.routes.draw do
   put "contacts/:id" => 'contacts#update'
 
   get "contacts/:id" => 'contacts#show', :as => "contact"
+  ###########################################################
+  #article routes
+  get "articles" => 'articles#index', :as => 'article'
 
+  get "articles/new" => 'articles#new', :as => "article_new"
+  get "articles/:id/edit" => 'articles#edit', :as => "article_edit"
+
+  post "articles" => 'articles#create'
+  put "articles/:id" => 'articles#update'
+
+  get "articles/:id" => 'articles#show', :as => "article"
 end
