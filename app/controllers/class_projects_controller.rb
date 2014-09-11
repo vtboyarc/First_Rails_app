@@ -37,6 +37,7 @@ class ClassProjectsController < ApplicationController
     @class_project = ClassProject.find(params[:id])
   end
   
+  #scope
   #method to make an existing project post a featured project
   def make_featured
     @existing_project = ClassProject.find(params[:id])
