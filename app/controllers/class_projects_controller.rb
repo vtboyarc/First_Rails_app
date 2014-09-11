@@ -36,4 +36,17 @@ class ClassProjectsController < ApplicationController
   def show
     @class_project = ClassProject.find(params[:id])
   end
+  
+  #method to make an existing project post a featured project
+  def make_featured
+    @existing_project = ClassProject.find(params[:id])
+
+    #note that this is update_attribute, rather than update_attributes -- we're only changing one thing
+    @existing_project.update_attribute(:featured, true)
+
+    redirect_to class_project_path(@existing_project.id)
+  end
+  
+  
+  
 end

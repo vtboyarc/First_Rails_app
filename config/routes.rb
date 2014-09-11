@@ -4,6 +4,7 @@ Portfolio::Application.routes.draw do
   ######################################################
   
     root :to => 'pages#home'
+    get "contact" => 'pages#contact'
     
     get "classprojects" => 'class_projects#index', :as => "class_project"
   
