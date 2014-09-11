@@ -1,3 +1,4 @@
+ <div id="link">
 <h1>Links</h1>
 <% @links.each do |link| %>
   <p><%= link_to(link.name, link_path(link.id) ) %></p>
@@ -5,3 +6,4 @@
 
 <%= link_to("New Link", link_new_path) %>
 
+</div>
