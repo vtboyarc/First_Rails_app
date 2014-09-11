@@ -2,6 +2,8 @@ class Article < ActiveRecord::Base
   attr_accessible :body, :draft, :title
   validates :body, :draft, :title, presence: true
   
+  has_many :tags
+  
   #turns the article body into an array
   #
   #returns the first 30 characters of the array using the .slice method
