@@ -1,9 +1,10 @@
 Portfolio::Application.routes.draw do
-  # get "home" => 'pages#home', :as => "home"
- #  get "profile" => 'pages#profile', :as => "profile"
- #  get "contact" => 'pages#contact', :as => "contact"
+  # get "profile" => 'pages#profile', :as => "profile"
+  # get "contact" => 'pages#contact', :as => "contact"
   ######################################################
   
+    root :to => 'pages#home'
+    
     get "classprojects" => 'class_projects#index', :as => "class_project"
   
     get "classprojects/new" => 'class_projects#new', :as => "project_new"
@@ -36,4 +37,15 @@ Portfolio::Application.routes.draw do
   put "articles/:id" => 'articles#update'
 
   get "articles/:id" => 'articles#show', :as => "article"
+  ############################################################
+  #link routes
+  get "links" => 'links#index', :as => 'link'
+
+  get "links/new" => 'links#new', :as => "link_new"
+  get "links/:id/edit" => 'links#edit', :as => "link_edit"
+
+  post "links" => 'links#create'
+  put "links/:id" => 'links#update'
+
+  get "links/:id" => 'links#show', :as => "link"
 end
