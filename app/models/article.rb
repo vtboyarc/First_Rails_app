@@ -3,6 +3,7 @@ class Article < ActiveRecord::Base
   validates :body, :draft, :title, presence: true
   
   has_many :tags
+  has_many :likes
   
   #turns the article body into an array
   #

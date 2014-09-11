@@ -3,4 +3,14 @@
 <h1><%= @article.body %></h1>
 
 <%= link_to("Edit this article", article_edit_path(@article.id)) %>
+<!-- this will be the checkbox -->
+  
+          <%= check_box_tag(:like) %>
+          <%= label_tag(:like, "LIKE THIS ARTICLE!") %>
+        
+
+<% Like.create({article_id: @article.id, ip_address: request.remote_ip})%>
+
+<!-- this will be the likes show, the counter that shows how many people like this -->
+ <%= @article.likes %>
 </div>
