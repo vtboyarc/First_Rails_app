@@ -1,9 +1,13 @@
+require 'pry'
 class Article < ActiveRecord::Base
   attr_accessible :body, :draft, :title
-  validates :body, :draft, :title, presence: true
+  # validates :body, :draft, :title, presence: true
   
   has_many :tags
   has_many :likes
+  def already_likes?(article)
+    self.likes.find(:all, :conditions => ['article_id = ?', article.id]).size > 0
+  end
   
   #turns the article body into an array
   #

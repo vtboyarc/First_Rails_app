@@ -2,7 +2,16 @@ Portfolio::Application.routes.draw do
   # get "profile" => 'pages#profile', :as => "profile"
   # get "contact" => 'pages#contact', :as => "contact"
   ######################################################
+  #sign up user
+    get "login" => 'logins#new', :as => "login"
+    post "login" => 'logins#create', :as => "new_login"
   
+    post "create_user" => 'users#create', :as => "create_user"
+    get "signup" => 'users#new', :as => "signup"
+  
+    get "like/:article_id" => 'likes#new', :as => "like"
+  
+  ##########################################################
     root :to => 'pages#home'
     get "contact" => 'pages#contact'
     
@@ -37,7 +46,7 @@ Portfolio::Application.routes.draw do
   post "articles" => 'articles#create'
   put "articles/:id" => 'articles#update'
 
-  get "articles/:id" => 'articles#show', :as => "article"
+  get "articles/:id" => 'articles#show', :as => "articles"
   ############################################################
   #link routes
   get "links" => 'links#index', :as => 'link'

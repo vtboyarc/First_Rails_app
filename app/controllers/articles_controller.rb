@@ -1,3 +1,4 @@
+require 'pry'
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all
@@ -33,6 +34,10 @@ end
   
     def show
       @article = Article.find(params[:id])
+      @likes = @article.likes
+      binding.pry
+      @like = Like.create({article_id: @article.id, ip_address: request.remote_ip})
+      bindng.pry
     end
 end
 
