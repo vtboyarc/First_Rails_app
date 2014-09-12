@@ -1,6 +1,12 @@
  <%= link_to "Sign up for a new account!", signup_path%>
  <%= link_to "Log In to our secure server(heh, amazon much?)", login_path%>
  
+ <% if current_user%>
+   You are logged in!
+   <% else %>
+   You aren't logged in! Either log in or make an account!
+   <% end %>
+ 
  <div id="article">
 <h1>Articles</h1>
 <% @articles.each do |article| %>
