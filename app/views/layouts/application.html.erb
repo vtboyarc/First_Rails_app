@@ -8,6 +8,20 @@
 </head>
 <body>
 
+<!--the id='s are for styling in CSS -->
+<% if flash[:notice] %>
+  <p id="notice"><%= flash[:notice] %></p>
+<% end %>
+<% if flash[:alert] %>
+  <p id="alert"><%= flash[:alert] %></p>
+<% end %>
+  
+<% if current_user %>
+  Logged in as <%= current_user.email %>! (<%= link_to "Log Out", logout_path %>)
+<% else %>
+  You aren't logged in!
+<% end %>
+
 <%= yield %>
 
 </body>

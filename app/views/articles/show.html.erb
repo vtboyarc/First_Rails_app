@@ -1,16 +1,19 @@
- <div id="article">
+<div id="article">
 <h1><%= @article.title %></h1>
 <h1><%= @article.body %></h1>
 
-<%= link_to("Edit this article", article_edit_path(@article.id)) %>
+<%= link_to("Edit this article", edit_article_path(@article.id)) %>
 
    <%= form_for @like do |f| %>
-     <%= f.check_box_tag(:like) %>
-     <%= f.label_tag(:like, "LIKE THIS ARTICLE!") %>
+     <%= f.check_box(:like) %>
+     <%= f.label(:like, "LIKE THIS ARTICLE!") %>
      <%=  f.submit %>
      <% end %>
    
 
 
  <p><%= @likes.length %> people like this!</p>
+ <%= link_to 'Edit', edit_article_path(@article.id) %> |
+ <%= link_to 'Back', articles_path %>
+ 
 </div>

@@ -1,4 +1,5 @@
 class LoginsController < ApplicationController
+   skip_before_filter :authorize, :only => [:new, :create]
   def new
   end
   
@@ -11,5 +12,10 @@ class LoginsController < ApplicationController
       else
         raise "Invalid login."
       end
+  end
+  
+  def destroy
+    session[:user_id] = nil
+    redirect_to articles_path
   end
 end

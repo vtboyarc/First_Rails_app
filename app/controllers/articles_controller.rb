@@ -34,10 +34,12 @@ end
   
     def show
       @article = Article.find(params[:id])
+      @like = Like.new({ip_address: request.remote_ip, article_id: params[:id]})
+      @likes = Like.where(article_id: @article.id)
+      
       @likes = @article.likes
-      binding.pry
+ 
       @like = Like.create({article_id: @article.id, ip_address: request.remote_ip})
-      bindng.pry
+
     end
 end
-

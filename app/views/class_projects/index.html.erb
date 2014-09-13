@@ -1,16 +1,16 @@
- <div id="project">
-<h1>Projects</h1>
+<div id="project">
+  <h1>Projects</h1>
  
-<% @class_projects.each do |classproject| %>
+  <% @class_projects.each do |class_project| %>
  
-<!-- We could run this tag
-	<! <p><a href="<%#= user_path(user.id) %>"><%#= user.name %></a></p> -->
-<!-- But the link_to approach is the much more conventional 'rails way' -->
+  <!-- We could run this tag
+  <! <p><a href="<%#= user_path(user.id) %>"><%#= user.name %></a></p> -->
+  <!-- But the link_to approach is the much more conventional 'rails way' -->
  
-<p><%= link_to(classproject.name, project_path(classproject.id)) %></p>
- 
-<% end %>
- 
-<%= link_to("Create new Project", project_new_path) %>
+  <p><%= link_to(class_project.name, class_projects_path(class_project.id)) %></p>
+
+  <% end %>
+
+  <%= link_to("Create new Project", class_projects_path) %>
 
 </div>
