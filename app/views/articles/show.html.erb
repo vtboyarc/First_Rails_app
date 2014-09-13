@@ -1,19 +1,24 @@
 <div id="article">
 <h1><%= @article.title %></h1>
-<h1><%= @article.body %></h1>
+<p><%= @article.body %></p>
 
-<%= link_to("Edit this article", edit_article_path(@article.id)) %>
+<%= session[:id] %>
 
-   <%= form_for @like do |f| %>
-     <%= f.check_box(:like) %>
-     <%= f.label(:like, "LIKE THIS ARTICLE!") %>
-     <%=  f.submit %>
-     <% end %>
+<p>Likes: <%= @all_likes.length %></p>
+
+
+  <% if @ip %>
+    <%= form_for @like do |f| %>
+      <%= f.hidden_field :article_id, value: @article.id %>
+      <%= f.hidden_field :ip_address, value: request.remote_ip %> 
+      <%= f.submit value: "Like" %> 
+    <% end %>
+  <% end %>
    
 
-
- <p><%= @likes.length %> people like this!</p>
- <%= link_to 'Edit', edit_article_path(@article.id) %> |
- <%= link_to 'Back', articles_path %>
+ <p><%= link_to('Edit', edit_article_path(@article.id)) %></p>
+ <p><%= link_to('Back', articles_path) %></p>
  
 </div>
+
+

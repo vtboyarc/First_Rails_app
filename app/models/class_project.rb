@@ -6,4 +6,5 @@ class ClassProject < ActiveRecord::Base
   
   # validates :name, :presence => true
   
+  scope :featured, -> {where(featured: true)}
 end

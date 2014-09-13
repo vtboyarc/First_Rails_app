@@ -1,8 +1,9 @@
  <div id="contact">
 <h1><%= @contact.name %></h1>
-<h1><%= @contact.email %></h1>
-<h1><%= @contact.message %></h1>
+<p><%= @contact.email %></p>
+<p><%= @contact.message %></p>
 
-<%= link_to("Edit this contact", contact_edit_path(@contact.id)) %>
+<p><%= link_to("Edit this contact", edit_contact_path(@contact.id)) %></p>
+<p><%= link_to("Home", contact_path) %></p>
 
 </div>

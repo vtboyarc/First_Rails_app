@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(params[:article])
 
     if @article.save
-      redirect_to article_path
+      redirect_to articles_path
     else
       render "new" #refers to app/views/users/new
     end
@@ -34,12 +34,23 @@ end
   
     def show
       @article = Article.find(params[:id])
-      @like = Like.new({ip_address: request.remote_ip, article_id: params[:id]})
-      @likes = Like.where(article_id: @article.id)
+      @like = Like.new
+      @all_likes = Like.where({article_id: params[:id]})
+      @ip = true
       
-      @likes = @article.likes
- 
-      @like = Like.create({article_id: @article.id, ip_address: request.remote_ip})
-
+      @all_likes.each do |l|
+        if l.ip_address == request.remote_ip
+          @ip = false
+        end
     end
-end
+    
+    def destroy
+        @article = Article.find(params[:id])
+        @article.destroy
+    
+        redirect_to articles_path
+      end
+  
+    end
+    
+  end
