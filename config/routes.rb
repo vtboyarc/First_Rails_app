@@ -7,7 +7,7 @@ Portfolio::Application.routes.draw do
     root :to => 'pages#home'
    
     get "login" => 'logins#new', :as => "login"
-    post "login" => 'logins#create', :as => "new_login"
+    post "login" => 'logins#create', :as => "create_login" #new_login instead?
     
     get "logout" => 'logins#destroy', :as => "logout"
 
@@ -15,6 +15,8 @@ Portfolio::Application.routes.draw do
     get "signup" => 'users#new', :as => "signup"
 
     get "like/:article_id" => 'likes#new', :as => "like"
+    ####################################################
+  
     
     resources :users
     resources :likes

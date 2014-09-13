@@ -1,5 +1,6 @@
 require 'pry'
 class ArticlesController < ApplicationController
+  before_filter :authorize, :only => [:new, :create, :edit, :update, :destroy]
   def index
     @articles = Article.all
   end
@@ -18,19 +19,6 @@ class ArticlesController < ApplicationController
     end
 end
     
-    def edit
-      @existing_article = Article.find(params[:id])
-    end
-    
-    def update
-      @existing_article = Article.find(params[:id])
-    
-      if @existing_article.update_attributes(params[:article])
-        redirect_to article_path(@existing_article.id)
-      else
-        render "edit"
-      end
-  end 
   
     def show
       @article = Article.find(params[:id])
@@ -44,6 +32,23 @@ end
         end
     end
     
+  end
+  
+    def edit
+      @existing_article = Article.find(params[:id])
+    end
+    
+    def update
+      @existing_article = Article.find(params[:id])
+    
+      if @existing_article.update_attributes(params[:article])
+        redirect_to article_path(@existing_article.id)
+      else
+        render "edit"
+      end
+  end 
+
+    
     def destroy
         @article = Article.find(params[:id])
         @article.destroy
@@ -52,5 +57,3 @@ end
       end
   
     end
-    
-  end

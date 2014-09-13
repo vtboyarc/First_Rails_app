@@ -8,7 +8,7 @@
 <!-- Creates a PUT request to "/users/1/edit" -->
 <%#= form_for(@existing_recruit, :as => "user", :url => user_path(@existing_recruit.id), :method => "put") ... %>
 
-<%= form_for (@existing_article), :url => "/articles/#{@existing_article.id}" do |f| %>
+<%= form_for (@existing_article) do |f| %>
 
    <%= f.label :title %>
    <%= f.text_field :title %>
@@ -19,5 +19,8 @@
   <%= f.submit %>
 
 <% end %>
+
+<p><%= link_to("Delete this article", delete_article_path, :method => :delete) %></p>
+<p><%= link_to 'Go Back', articles_path %></p>
 
 </div>

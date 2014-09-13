@@ -4,7 +4,6 @@ class ClassProjectsController < ApplicationController
     @class_projects = ClassProject.all
   end
   
-  binding.pry
   def new
     @class_project = ClassProject.new
   end
@@ -13,7 +12,7 @@ class ClassProjectsController < ApplicationController
     @class_project = ClassProject.new(params[:class_project])
     
     if @class_project.save
-      redirect_to class_project_path
+      redirect_to class_projects_path
     else
       render "new"
     end

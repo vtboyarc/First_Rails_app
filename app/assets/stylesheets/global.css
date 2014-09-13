@@ -23,3 +23,10 @@
     border: 1px solid rgba(81, 203, 238, 1);
   }
 }
+
+#notice{
+  color: blue;
+}
+#alert{
+  color: red;
+}
