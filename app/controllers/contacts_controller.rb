@@ -39,7 +39,7 @@ end
   end
 
   def destroy
-    Contact.find(params[:id]).delete
+    @contact = Contact.find(params[:id])
     redirect_to contact_index_path, :notice => "Deleted this, you have."
   end
 

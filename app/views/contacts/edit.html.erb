@@ -25,8 +25,9 @@
 <% end %>
 
 
-<p><%= link_to("destroy", contacts_path, :method => :delete) %></p>
+<p><%= link_to "Destroy", contacts_path, method: :delete, data: {confirm: "delete this?"} %></p>
 <p><%= link_to 'Go Home', root_path %></p>
 
 
 </div>
+

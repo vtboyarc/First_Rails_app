@@ -5,7 +5,7 @@ Portfolio::Application.routes.draw do
   ######################################################
   #sign up user
     root :to => 'pages#home'
-   
+    
     get "login" => 'logins#new', :as => "login"
     post "login" => 'logins#create', :as => "create_login" #new_login instead?
     
