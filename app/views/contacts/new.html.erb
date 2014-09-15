@@ -1,5 +1,5 @@
  <div id="contact">
-<h1>New Contact</h1>
+<h1>New Contact!</h1>
 
 <% @contact.errors.full_messages.each do |msg| %>
   <p><%= msg %></p>
@@ -21,8 +21,8 @@
 
 <% end %>
 
-<p><%= link_to("Go back", contacts_path) %></p>
+<p><%= link_to 'Go Home', root_path %></p>
 
 </div>
-
+ 
 

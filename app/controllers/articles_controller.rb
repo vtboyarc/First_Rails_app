@@ -1,6 +1,7 @@
 require 'pry'
 class ArticlesController < ApplicationController
-  before_filter :authorize, :only => [:new, :create, :edit, :update, :destroy]
+  skip_before_filter :authorize, :only => [:index, :show]
+  
   def index
     @articles = Article.all
   end
@@ -13,13 +14,12 @@ class ArticlesController < ApplicationController
     @article = Article.new(params[:article])
 
     if @article.save
-      redirect_to articles_path
+      redirect_to article_path(@article.id), :notice => "Saved this article, you have."
     else
       render "new" #refers to app/views/users/new
     end
 end
-    
-  
+
     def show
       @article = Article.find(params[:id])
       @like = Like.new
@@ -33,7 +33,7 @@ end
     end
     
   end
-  
+ 
     def edit
       @existing_article = Article.find(params[:id])
     end
@@ -50,10 +50,9 @@ end
 
     
     def destroy
-        @article = Article.find(params[:id])
-        @article.destroy
+        Article.find(params[:id]).delete
     
-        redirect_to articles_path
+        redirect_to articles_path, :notice => "You have deleted this article!"
       end
   
     end

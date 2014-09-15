@@ -1,22 +1,8 @@
 <h1>Welcome to my Portfolio!</h1>
 <p>Here's some work I've done:</p>
 
-<%= link_to("contact", contact_path,) %>
-
-<% @projects.each do |p| %>
-
-<%= p.name %>
-<%= p.summary %>
-<%= p.code_language %>
-<%= p.link %>
-
-
-<% end %>s
-
-<% @articles.each do |a| %>
-
-<%= a.title %>
-<%= a.draft %>
-<%= a.body %>
-
-<% end %>
+<ul>
+<li><%= link_to("Articles", articles_path,) %></li>
+<li><%= link_to("Contacts", contacts_path,) %></li>
+<li><%= link_to("Projects", class_projects_path,) %></li>
+</ul>

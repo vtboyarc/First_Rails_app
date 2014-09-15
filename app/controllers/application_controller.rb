@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   
   def authorize
     if current_user.nil?
-      redirect_to login_path, :alert => "You need to log in first!"
+      redirect_to logins_path, :alert => "You need to log in first!"
     end
   end
   

@@ -20,7 +20,7 @@
 
 <% end %>
 
-<p><%= link_to("Delete this article", delete_article_path, :method => :delete) %></p>
-<p><%= link_to 'Go Back', articles_path %></p>
+<p><%= link_to("destroy", articles_path, :method => :delete) %></p>
+<p><%= link_to 'Go Home', root_path %></p>
 
 </div>

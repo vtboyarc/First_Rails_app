@@ -9,7 +9,7 @@
  
 <!-- Creates a POST request to "/classprojects" -->
  
-<%= form_for @class_project, :url => "/classprojects" do |f| %>
+<%= form_for @class_project do |f| %>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
 	
@@ -30,4 +30,9 @@
 	
 <% end %>
 
+<p><%= link_to 'Go Home', root_path %></p>
+
 </div>
+
+
+<p><%= link_to("Home", root_path)%></p>

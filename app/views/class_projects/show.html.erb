@@ -6,6 +6,8 @@
 <p><%= @class_project.github %></p>
 <p><%= @class_project.link %></p>
  
-<%= link_to("Edit this user", project_edit_path(@class_project.id)) %>
+<%= link_to("Edit", edit_class_project_path) %>
+<%= link_to("Portfolio", class_projects_path)%>
+<p><%= link_to 'Go Home', root_path %></p>
 
 </div>

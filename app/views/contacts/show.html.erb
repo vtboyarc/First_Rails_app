@@ -3,7 +3,8 @@
 <p><%= @contact.email %></p>
 <p><%= @contact.message %></p>
 
-<p><%= link_to("Edit this contact", edit_contact_path(@contact.id)) %></p>
-<p><%= link_to("Home", contact_path) %></p>
+<p><%= link_to("Edit", edit_contact_path) %></p>
+<p><%= link_to("View All", contact_path) %></p>
+<p><%= link_to 'Go Home', root_path %></p>
 
 </div>

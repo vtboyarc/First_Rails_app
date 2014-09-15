@@ -1,4 +1,6 @@
 class ClassProjectsController < ApplicationController
+  
+  skip_before_filter :authorize, :only => [:index, :show]
  
   def index
     @class_projects = ClassProject.all
@@ -12,7 +14,7 @@ class ClassProjectsController < ApplicationController
     @class_project = ClassProject.new(params[:class_project])
     
     if @class_project.save
-      redirect_to class_projects_path
+      redirect_to class_project_path(@project.id)
     else
       render "new"
     end
@@ -45,8 +47,10 @@ class ClassProjectsController < ApplicationController
     @existing_project.update_attribute(:featured, true)
 
     redirect_to class_project_path(@existing_project.id)
+  end  
+  def destroy
+    ClassProject.find(params[:id]).delete
+    redirect_to class_projects_path
   end
-  
-  
   
 end

@@ -7,10 +7,12 @@
   <! <p><a href="<%#= user_path(user.id) %>"><%#= user.name %></a></p> -->
   <!-- But the link_to approach is the much more conventional 'rails way' -->
  
-  <p><%= link_to(class_project.name, class_projects_path(class_project.id)) %></p>
+  <p><%= link_to(class_project.name, class_project_path(class_project.id)) %></p>
 
   <% end %>
 
-  <%= link_to("Create new Project", class_projects_path) %>
+  <%= link_to("Create new Project", new_class_project_path) %>
+  
+  <p><%= link_to 'Go Home', root_path %></p>
 
 </div>

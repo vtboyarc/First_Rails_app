@@ -1,5 +1,7 @@
 class ContactsController < ApplicationController
   
+   skip_before_filter :authorize, :only => [:new, :create]
+  
   def index
     @contacts = Contact.all
   end
@@ -12,7 +14,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(params[:contact])
 
     if @contact.save
-      redirect_to contact_path
+      redirect_to root_path, :notice => "Sent, message has been."
     else
       render "new" #refers to app/views/users/new
     end
@@ -26,7 +28,7 @@ end
     @existing_contact = Contact.find(params[:id])
     
       if @existing_contact.update_attributes(params[:contact])
-        redirect_to contact_path(@existing_contact.id)
+        redirect_to contact_path
       else
         render "edit"
       end
@@ -35,5 +37,12 @@ end
   def show
     @contact = Contact.find(params[:id])
   end
+
+  def destroy
+    Contact.find(params[:id]).delete
+    redirect_to contact_index_path, :notice => "Deleted this, you have."
+  end
+
 end
+
 

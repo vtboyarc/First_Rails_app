@@ -1,4 +1,6 @@
 class LinksController < ApplicationController
+    skip_before_filter :authorize, :only => [:index, :show]
+  
     def index
       @links = Link.all
     end
@@ -11,7 +13,7 @@ class LinksController < ApplicationController
       @link = Link.new(params[:link])
     
       if @link.save
-        redirect_to links_index_path
+        redirect_to links_path
       else
         render 'new'
       end
@@ -26,7 +28,7 @@ class LinksController < ApplicationController
       @existing_link = Link.find(params[:id])
     
       if @existing_link.update_attributes(params[:link])
-        redirect_to links_index_path
+        redirect_to links_path
       else
         render 'edit'
       end
@@ -35,4 +37,11 @@ class LinksController < ApplicationController
     def show
       @link = Link.find(params[:id])
     end 
+    
+    def destroy
+      Link.find(params[:id]).delete
+      redirect_to links_path, :notice => "You've deleted this link!."
+    end
+    
   end
+
