@@ -1,5 +1,5 @@
 class LoginsController < ApplicationController
-   skip_before_filter :authorize
+   skip_before_filter :authorize, :only => [:new, :create]
   def new
   end
   
@@ -19,3 +19,4 @@ class LoginsController < ApplicationController
     redirect_to root_path
   end
 end
+

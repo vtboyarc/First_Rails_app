@@ -1,18 +1,15 @@
 <div id="project">
   <h1>Projects</h1>
  
-  <% @class_projects.each do |class_project| %>
+  <% @class_projects.each do |p| %>
  
   <!-- We could run this tag
   <! <p><a href="<%#= user_path(user.id) %>"><%#= user.name %></a></p> -->
   <!-- But the link_to approach is the much more conventional 'rails way' -->
- 
-  <p><%= link_to(class_project.name, class_project_path(class_project.id)) %></p>
+ 	<p><%= link_to(p.name, class_project_path(p.id))%> | <%= link_to("Edit #{p.name}", edit_class_project_path(p.id)) %> | <%= link_to("Delete #{p.name}", class_project_path(p), data: { confirm: 'Are you sure?' }, :method => :delete) %></p>
+ <% end %>
 
-  <% end %>
-
-  <%= link_to("Create new Project", new_class_project_path) %>
-  
-  <p><%= link_to 'Go Home', root_path %></p>
+ <p><%= link_to("New Project", new_class_project_path) %></p>
+ <p><%= link_to("Home", root_path)%></p>
 
 </div>

@@ -21,6 +21,7 @@ Portfolio::Application.routes.draw do
     resources :users, :likes, :logins, :class_projects, :contacts, :articles, :links
   end
 
+
   ##########################################################
 
     # get "contact" => 'pages#contact'
